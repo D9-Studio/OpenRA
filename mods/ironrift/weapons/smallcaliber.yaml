@@ -1,0 +1,146 @@
+TavorRifle:
+	ReloadDelay: 8
+	Range: 5c0
+	Report: mgun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 1500
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 60
+			Light: 40
+			Heavy: 25
+			Concrete: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+MicroTavor:
+	ReloadDelay: 6
+	Range: 5c0
+	Report: mgun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 1800
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 60
+			Light: 45
+			Heavy: 30
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+AK47:
+	ReloadDelay: 10
+	Range: 4c512
+	Report: gun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 896
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 1200
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 55
+			Light: 35
+			Heavy: 20
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+DShKMG:
+	ReloadDelay: 6
+	Range: 6c0
+	Report: gun11.aud
+	ValidTargets: Ground, GroundActor, AirborneActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2500
+		ValidTargets: GroundActor, AirborneActor
+		Versus:
+			None: 100
+			Wood: 60
+			Light: 80
+			Heavy: 25
+			Concrete: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+HeavyMG50cal:
+	ReloadDelay: 5
+	Range: 6c0
+	Report: gun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2200
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 70
+			Light: 60
+			Heavy: 30
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CoaxialMG:
+	ReloadDelay: 4
+	Range: 5c512
+	Report: mgun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1800
+		ValidTargets: GroundActor
+		Versus:
+			None: 120
+			Wood: 60
+			Light: 40
+			Heavy: 15
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+PillboxMG:
+	ReloadDelay: 5
+	Range: 6c0
+	Report: gun11.aud
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 1024
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2000
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 70
+			Light: 50
+			Heavy: 25
+			Concrete: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+DogJaw:
+	ReloadDelay: 15
+	Range: 1c0
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 0
+		Damage: 5000
+		ValidTargets: Infantry
+		Versus:
+			None: 100
+		DamageTypes: DefaultDeath

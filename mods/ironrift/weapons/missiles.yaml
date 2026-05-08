@@ -1,0 +1,183 @@
+SpikeMissile:
+	ReloadDelay: 75
+	Range: 8c0
+	Report: missile1.aud
+	ValidTargets: Ground, GroundActor, AirborneActor
+	InvalidTargets: Infantry
+	Projectile: Missile
+		Speed: 384
+		Image: DRAGON
+		HorizontalRateOfTurn: 20
+		RangeLimit: 22c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 8000
+		ValidTargets: GroundActor, AirborneActor
+		Versus:
+			None: 30
+			Wood: 80
+			Light: 100
+			Heavy: 120
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor
+
+RPG7:
+	ReloadDelay: 60
+	Range: 4c512
+	Report: missile1.aud
+	ValidTargets: Ground, GroundActor
+	InvalidTargets: Infantry
+	Projectile: Bullet
+		Speed: 512
+		Image: DRAGON
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 5000
+		ValidTargets: GroundActor
+		Versus:
+			None: 20
+			Wood: 70
+			Light: 100
+			Heavy: 80
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor
+
+KornetATGM:
+	ReloadDelay: 100
+	Range: 9c0
+	Report: missile1.aud
+	ValidTargets: Ground, GroundActor
+	InvalidTargets: Infantry
+	Projectile: Missile
+		Speed: 340
+		Image: DRAGON
+		HorizontalRateOfTurn: 16
+		RangeLimit: 24c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 170
+		Damage: 12000
+		ValidTargets: GroundActor
+		Versus:
+			None: 20
+			Wood: 80
+			Light: 100
+			Heavy: 130
+			Concrete: 70
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor
+
+GradRocket:
+	ReloadDelay: 5
+	Burst: 8
+	BurstDelays: 5
+	Range: 12c0
+	MinRange: 4c0
+	Report: rocket2.aud
+	ValidTargets: Ground, GroundActor, WaterActor
+	Projectile: Bullet
+		Speed: 384
+		Image: BOMB
+		Inaccuracy: 3c0
+		Shadow: True
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Damage: 3000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 80
+			Heavy: 50
+			Concrete: 40
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor, WaterActor
+
+IronDomeInterceptor:
+	ReloadDelay: 30
+	Range: 12c0
+	Report: missile1.aud
+	ValidTargets: AirborneActor
+	Projectile: Missile
+		Speed: 512
+		Image: DRAGON
+		HorizontalRateOfTurn: 40
+		RangeLimit: 30c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 5000
+		ValidTargets: AirborneActor
+		Versus:
+			None: 200
+			Light: 150
+		DamageTypes: ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom12.aud
+		ValidTargets: AirborneActor
+
+HaropDive:
+	ReloadDelay: 1
+	Range: 3c0
+	ValidTargets: Ground, GroundActor
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 10000
+		ValidTargets: GroundActor
+		Versus:
+			None: 80
+			Wood: 100
+			Light: 120
+			Heavy: 100
+			Concrete: 60
+		DamageTypes: ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor
+
+ShahedImpact:
+	ReloadDelay: 1
+	Range: 2c0
+	ValidTargets: Ground, GroundActor, Structure
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 384
+		Damage: 6000
+		ValidTargets: GroundActor, Structure
+		Versus:
+			None: 100
+			Wood: 120
+			Light: 100
+			Heavy: 60
+			Concrete: 50
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor

@@ -1,0 +1,373 @@
+^ExistsInWorld:
+	AppearsOnRadar:
+	CombatDebugOverlay:
+	GivesExperience:
+		PlayerExperienceModifier: 1
+	ScriptTriggers:
+	RenderDebugState:
+
+^SpriteActor:
+	BodyOrientation:
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+
+^ClassicFacingSpriteActor:
+	ClassicFacingBodyOrientation:
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+
+^1x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+
+^2x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -512
+			BottomRight: 1024, 512
+
+^2x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 1024
+
+^3x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 1024
+
+^SelectableCombatUnit:
+	Selectable:
+		Bounds: 1024, 1024
+
+^GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		LevelUpTextNotification: notification-unit-promoted
+		Conditions:
+			200: rank-veteran
+			400: rank-veteran
+			800: rank-veteran
+			1600: rank-veteran
+		LevelUpImage: crate-effects
+	GrantCondition@RANK-ELITE:
+		RequiresCondition: rank-veteran >= 4
+		Condition: rank-elite
+	DamageMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 95
+	DamageMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 90
+	DamageMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	DamageMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 75
+	FirepowerMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	FirepowerMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	FirepowerMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 120
+	FirepowerMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 130
+	SpeedMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	SpeedMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	SpeedMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 120
+	SpeedMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 140
+	ReloadDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 95
+	ReloadDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 90
+	ReloadDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	ReloadDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 75
+
+^PlayerHandicaps:
+	HandicapFirepowerMultiplier:
+	HandicapDamageMultiplier:
+	HandicapProductionTimeMultiplier:
+
+^IronCurtainable:
+	WithColoredOverlay@IRONCURTAIN:
+		RequiresCondition: invulnerability
+	DamageMultiplier@IRONCURTAIN:
+		RequiresCondition: invulnerability
+		Modifier: 0
+	TimedConditionBar:
+		Condition: invulnerability
+	ExternalCondition@INVULNERABILITY:
+		Condition: invulnerability
+
+^AutoTargetGround:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, Ship, Defense, Mine
+		InvalidTargets: NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, Ship, Structure, Defense, Mine
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetGroundAssaultMove:
+	Inherits: ^AutoTargetGround
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything || assault-move
+	AttackMove:
+		AssaultMoveCondition: assault-move
+
+^AutoTargetAir:
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: AirborneActor
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAll:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, Ship, AirborneActor, Defense, Mine
+		InvalidTargets: NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, Ship, AirborneActor, Structure, Defense, Mine
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAllAssaultMove:
+	Inherits: ^AutoTargetAll
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything || assault-move
+	AttackMove:
+		AssaultMoveCondition: assault-move
+
+^GlobalBounty:
+	GrantConditionOnPrerequisite@GLOBALBOUNTY:
+		Condition: global-bounty
+		Prerequisites: global-bounty
+	GivesBounty:
+		RequiresCondition: global-bounty
+
+^Vehicle:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^IronCurtainable
+	Inherits@3: ^ClassicFacingSpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Inherits@selection: ^SelectableCombatUnit
+	Inherits@handicaps: ^PlayerHandicaps
+	Huntable:
+	OwnerLostAction:
+		Action: Kill
+	UpdatesPlayerStatistics:
+	Mobile:
+		PauseOnCondition: being-captured
+		Locomotor: wheeled
+		TurnSpeed: 20
+	Selectable:
+		Bounds: 1024, 1024
+	Targetable:
+		TargetTypes: GroundActor, Vehicle
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: Repair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Repairable:
+		RepairActors: mfact, qfact
+	Passenger:
+		CargoType: Vehicle
+	AttackMove:
+	HiddenUnderFog:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Vehicle
+	GpsDot:
+		String: Vehicle
+	WithDamageOverlay:
+		StartSequence: start
+	Guard:
+	Guardable:
+	Tooltip:
+		GenericName: actor-vehicle.generic-name
+	MustBeDestroyed:
+	Voiced:
+		VoiceSet: VehicleVoice
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+
+^TrackedVehicle:
+	Inherits: ^Vehicle
+	Mobile:
+		Locomotor: tracked
+		TurnSpeed: 20
+
+^HeavyTrackedVehicle:
+	Inherits: ^Vehicle
+	Mobile:
+		Locomotor: heavytracked
+		TurnSpeed: 16
+
+^Soldier:
+	Inherits@1: ^ExistsInWorld
+	Inherits@bounty: ^GlobalBounty
+	Inherits@handicaps: ^PlayerHandicaps
+	Huntable:
+	OwnerLostAction:
+		Action: Kill
+	UpdatesPlayerStatistics:
+	Mobile:
+		Speed: 56
+		Locomotor: foot
+		PauseOnCondition: being-captured
+		Voice: Move
+	Selectable:
+		Bounds: 512, 725, -42, -170
+		DecorationBounds: 512, 725, -42, -170
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	HiddenUnderFog:
+	Guard:
+		Voice: Move
+	Guardable:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Infantry
+	GpsDot:
+		String: Infantry
+	WithInfantryBody:
+	TakeCover:
+		DamageModifier: 50
+		DamageTriggers: TriggerProne
+	AttackMove:
+		Voice: Move
+	Tooltip:
+		GenericName: actor-infantry.generic-name
+	MustBeDestroyed:
+	Voiced:
+		VoiceSet: GuyVoice
+	DeathSounds@NORMAL:
+		DeathTypes: DefaultDeath
+		Voice: Die
+	DeathSounds@BURNED:
+		DeathTypes: BurnDeath
+		Voice: Die
+	Passenger:
+		CargoType: Infantry
+		Voice: Move
+
+^Building:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Inherits@handicaps: ^PlayerHandicaps
+	OwnerLostAction:
+		Action: Kill
+	UpdatesPlayerStatistics:
+	Targetable:
+		TargetTypes: GroundActor, Structure
+	HiddenUnderFog:
+		Type: CenterPosition
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+	ActorPreviewPlaceBuildingPreview:
+	WithSpriteBody:
+	Tooltip:
+		GenericName: actor-building.generic-name
+	FrozenUnderFog:
+	Guardable:
+	Demolishable:
+	GpsDot:
+		String: Structure
+	RepairableBuilding:
+		RepairStep: 700
+	WithBuildingRepairDecoration:
+		Image: allyrepair
+		Sequence: repair
+		Position: Center
+	MustBeDestroyed:
+	Selectable:
+		Bounds: 1024, 1024
+	CaptureManager:
+		BeingCapturedCondition: being-captured
+	Capturable:
+		Types: building
+	CaptureNotification:
+		Notification: BuildingCaptured
+		TextNotification: notification-building-captured
+		LoseNotification: BuildingLost
+		LoseTextNotification: notification-building-lost
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+
+^DefenseBuilding:
+	Inherits: ^Building
+	Targetable:
+		TargetTypes: GroundActor, Structure, Defense
+	Buildable:
+		Queue: Defense
+
+^ScienceBuilding:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+
+^DisableOnLowPowerOrPowerDown:
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	GrantCondition@POWERDOWN:
+		Condition: powerdown
+	ToggleConditionOnOrder:
+		Condition: powerdown
+		OrderName: PowerDown
+	GrantCondition@DISABLED:
+		RequiresCondition: lowpower || powerdown
+		Condition: disabled
+	WithDecoration@POWERDOWN:
+		RequiresCondition: powerdown
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		Position: Center
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0

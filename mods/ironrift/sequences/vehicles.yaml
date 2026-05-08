@@ -1,0 +1,35 @@
+# Using RA vehicle sprites as placeholders
+# Replace with custom art later
+
+eitan:
+	Inherits: 1tnk
+
+mrkva:
+	Inherits: 3tnk
+
+d9bld:
+	Inherits: mnly
+
+namer:
+	Inherits: apc
+
+mhvr:
+	Inherits: harv
+
+tech:
+	Inherits: jeep
+
+bmp1:
+	Inherits: btr
+
+katyusha:
+	Inherits: v2rl
+
+vbied:
+	Inherits: jeep
+
+qhvr:
+	Inherits: harv
+
+mcv:
+	Inherits: mcv

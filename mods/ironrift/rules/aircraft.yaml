@@ -1,0 +1,174 @@
+# ============================================================
+# MAGEN AIRCRAFT
+# ============================================================
+
+HERMES:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 10
+		Prerequisites: mair, ~structures.magen
+		Description: actor-hermes.description
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: actor-hermes.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armor:
+		Type: Light
+	Aircraft:
+		CruiseAltitude: 2560
+		Speed: 100
+		TurnSpeed: 20
+		RepulsionSpeed: 40
+		IdealSeparation: 1706
+		Repairables: mair
+		InitialFacing: 384
+		LandableTerrainTypes: Clear, Road, Rough, Beach, Ore, Gems
+	Targetable@GROUND:
+		RequiresCondition: grounded
+		TargetTypes: GroundActor
+	Targetable@AIRBORNE:
+		RequiresCondition: !grounded
+		TargetTypes: AirborneActor
+	GrantConditionOnTerrain:
+		Condition: grounded
+		TerrainTypes: Clear, Road, Rough, Beach, Ore, Gems
+	RevealsShroud:
+		Range: 10c0
+	DetectCloaked:
+		Range: 5c0
+	HiddenUnderFog:
+	BodyOrientation:
+	WithFacingSpriteBody:
+	Selectable:
+		Bounds: 1024, 1024
+		DecorationBounds: 1024, 1024
+
+HAROP:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 20
+		Prerequisites: mair, mrad, ~structures.magen
+		Description: actor-harop.description
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: actor-harop.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 2500
+	Armor:
+		Type: None
+	Aircraft:
+		CruiseAltitude: 2560
+		Speed: 140
+		TurnSpeed: 28
+		RepulsionSpeed: 40
+		Repairables: mair
+		InitialFacing: 384
+	Targetable@AIRBORNE:
+		TargetTypes: AirborneActor
+	Armament:
+		Weapon: HaropDive
+	AttackFrontal:
+	RevealsShroud:
+		Range: 5c0
+	Cloak:
+		InitialDelay: 50
+		CloakDelay: 40
+		UncloakOn: Attack, Damage
+	HiddenUnderFog:
+	BodyOrientation:
+	WithFacingSpriteBody:
+	Selectable:
+		Bounds: 1024, 1024
+
+# ============================================================
+# MUQAWAMA AIRCRAFT / DRONES
+# ============================================================
+
+SHAHED:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 10
+		Prerequisites: qhang, ~structures.muqawama
+		Description: actor-shahed.description
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: actor-shahed.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 1500
+	Armor:
+		Type: None
+	Aircraft:
+		CruiseAltitude: 1536
+		Speed: 60
+		TurnSpeed: 16
+		RepulsionSpeed: 20
+		Repairables: qhang
+		InitialFacing: 384
+	Targetable@AIRBORNE:
+		TargetTypes: AirborneActor
+	Armament:
+		Weapon: ShahedImpact
+	AttackFrontal:
+	RevealsShroud:
+		Range: 4c0
+	HiddenUnderFog:
+	BodyOrientation:
+	WithFacingSpriteBody:
+	Selectable:
+		Bounds: 768, 768
+
+ABABIL:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 20
+		Prerequisites: qhang, ~structures.muqawama
+		Description: actor-ababil.description
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: actor-ababil.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 2000
+	Armor:
+		Type: None
+	Aircraft:
+		CruiseAltitude: 2048
+		Speed: 80
+		TurnSpeed: 20
+		RepulsionSpeed: 40
+		Repairables: qhang
+		InitialFacing: 384
+	Targetable@AIRBORNE:
+		TargetTypes: AirborneActor
+	RevealsShroud:
+		Range: 7c0
+	HiddenUnderFog:
+	BodyOrientation:
+	WithFacingSpriteBody:
+	Selectable:
+		Bounds: 768, 768

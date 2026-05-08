@@ -1,0 +1,8 @@
+# Shared effects, crates, etc. from RA
+# These are referenced by weapons and decorations
+
+crate-effects:
+	Inherits: crate-effects
+
+rank:
+	Inherits: rank

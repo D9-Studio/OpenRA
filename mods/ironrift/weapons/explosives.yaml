@@ -1,0 +1,116 @@
+DemoCharge:
+	ReloadDelay: 150
+	Range: 1c512
+	ValidTargets: Ground, GroundActor, Structure
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Damage: 15000
+		ValidTargets: GroundActor, Structure
+		Versus:
+			None: 50
+			Wood: 150
+			Light: 100
+			Heavy: 80
+			Concrete: 120
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, GroundActor, Structure
+
+ExplosiveVest:
+	ReloadDelay: 1
+	Range: 1c0
+	ValidTargets: Ground, GroundActor, Structure
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 768
+		Damage: 12000
+		ValidTargets: GroundActor, Structure, Infantry
+		Versus:
+			None: 130
+			Wood: 120
+			Light: 80
+			Heavy: 50
+			Concrete: 100
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, GroundActor, Structure
+
+MartyrExplosion:
+	ValidTargets: Ground, GroundActor, Structure
+	Warhead@1Dam: SpreadDamage
+		Spread: 1024
+		Damage: 12000
+		ValidTargets: GroundActor, Structure, Infantry
+		Versus:
+			None: 130
+			Wood: 120
+			Light: 80
+			Heavy: 50
+			Concrete: 100
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, GroundActor, Structure
+
+VBIEDExplosion:
+	ReloadDelay: 1
+	Range: 1c512
+	ValidTargets: Ground, GroundActor, Structure
+	Projectile: Bullet
+		Speed: 9999
+	Warhead@1Dam: SpreadDamage
+		Spread: 1536
+		Damage: 25000
+		ValidTargets: GroundActor, Structure
+		Versus:
+			None: 100
+			Wood: 150
+			Light: 120
+			Heavy: 80
+			Concrete: 130
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, GroundActor, Structure
+
+UnitExplodeSmall:
+	ValidTargets: Ground, GroundActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 2000
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 25
+			Heavy: 10
+			Concrete: 5
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom12.aud
+		ValidTargets: Ground, GroundActor

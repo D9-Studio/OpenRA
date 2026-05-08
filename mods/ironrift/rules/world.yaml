@@ -1,0 +1,185 @@
+^BaseWorld:
+	Inherits: ^Palettes
+	ActorMap:
+	ScreenMap:
+	Selection:
+	ControlGroups:
+	MusicPlaylist:
+		VictoryMusic: score
+		DefeatMusic: map
+	TerrainGeometryOverlay:
+	DebugVisualizations:
+	Locomotor@FOOT:
+		Name: foot
+		Crushes: mine, crate
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 89
+			Road: 111
+			Bridge: 111
+			Ore: 89
+			Gems: 89
+			Beach: 89
+	Locomotor@WHEELED:
+		Name: wheeled
+		Crushes: mine, crate
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 50
+			Road: 125
+			Bridge: 125
+			Ore: 88
+			Gems: 88
+			Beach: 50
+	Locomotor@TRACKED:
+		Name: tracked
+		Crushes: wall, infantry, mine, crate
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 88
+			Road: 125
+			Bridge: 125
+			Ore: 88
+			Gems: 88
+			Beach: 88
+	Locomotor@HEAVYTRACKED:
+		Name: heavytracked
+		Crushes: wall, infantry, mine, crate
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 88
+			Road: 125
+			Bridge: 125
+			Ore: 88
+			Gems: 88
+			Beach: 88
+	Locomotor@NAVAL:
+		Name: naval
+		Crushes: crate
+		TerrainSpeeds:
+			Water: 100
+	TerrainRenderer:
+	ShroudRenderer:
+		FogVariants: shroud
+		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
+		UseExtendedIndex: true
+	Faction@magen:
+		Name: faction-magen.name
+		InternalName: magen
+		Side: Magen
+		Selectable: True
+		Description: faction-magen.description
+	Faction@muqawama:
+		Name: faction-muqawama.name
+		InternalName: muqawama
+		Side: Muqawama
+		Selectable: True
+		Description: faction-muqawama.description
+	Faction@random:
+		Name: faction-random.name
+		InternalName: Random
+		RandomFactionMembers: magen, muqawama
+		Side: Random
+		Description: faction-random.description
+	ResourceRenderer:
+		ResourceTypes:
+			Ore:
+				Sequences: gold01, gold02, gold03, gold04
+				Palette: player
+				Name: resource-supplies
+			Gems:
+				Sequences: gem01, gem02, gem03, gem04
+				Palette: player
+				Name: resource-technology
+
+World:
+	Inherits: ^BaseWorld
+	ChatCommands:
+	DevCommands:
+	DebugVisualizationCommands:
+	PathFinderOverlay:
+	HierarchicalPathFinderOverlay:
+	ActorMapOverlay:
+	PlayerCommands:
+	HelpCommand:
+	ScreenShaker:
+	BuildingInfluence:
+	ProductionQueueFromSelection:
+		ProductionPaletteWidget: PRODUCTION_PALETTE
+	CustomTerrainDebugOverlay:
+	CrateSpawner:
+		Minimum: 1
+		Maximum: 3
+		SpawnInterval: 4500
+		WaterChance: 10
+		InitialSpawnDelay: 2000
+		CheckboxDisplayOrder: 1
+	SmudgeLayer@SCORCH:
+		Type: Scorch
+		Sequence: scorches
+		SmokeChance: 50
+		SmokeImage: scorch_flames
+		SmokeSequences: large_flame, medium_flame, small_flame
+		MaxSmokeOffsetDistance: 341
+	SmudgeLayer@CRATER:
+		Type: Crater
+		Sequence: craters
+		SmokeChance: 25
+		SmokeImage: smoke_m
+		SmokeSequences: idle
+		MaxSmokeOffsetDistance: 213
+	ResourceLayer:
+		RecalculateResourceDensity: true
+		ResourceTypes:
+			Ore:
+				ResourceIndex: 1
+				TerrainType: Ore
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 12
+			Gems:
+				ResourceIndex: 2
+				TerrainType: Gems
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 3
+	ResourceClaimLayer:
+	WarheadDebugOverlay:
+	SpawnMapActors:
+	MapBuildRadius:
+		AllyBuildRadiusCheckboxDisplayOrder: 4
+		BuildRadiusCheckboxDisplayOrder: 5
+	MapOptions:
+		ShortGameCheckboxDisplayOrder: 2
+		TechLevelDropdownDisplayOrder: 3
+	StartingUnits@mcvonly:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: magen, muqawama
+		BaseActor: mcv
+	StartingUnits@lightsupport:
+		Class: light
+		ClassName: options-starting-units.light-support
+		Factions: magen, muqawama
+		BaseActor: mcv
+		SupportActors: loham, loham, eitan
+		InnerSupportRadius: 3
+		OuterSupportRadius: 5
+	LobbyOptions:
+	SpawnStartingUnits:
+	CreateMapPlayers:
+	CircleButton:
+	ObjectivesPanel:
+		PanelName: MISSION_OBJECTIVES
+		ExitDelay: 1500
+
+EditorWorld:
+	Inherits: ^BaseWorld
+	EditorActorLayer:
+	EditorResourceLayer:
+	EditorCursorLayer:
+	LoadWidgetAtGameStart:
+		ShellmapRoot:
+		IngameRoot:
+		EditorRoot: EDITOR_ROOT
+		GameSaveLoadingRoot:
+		ClearRoot: true

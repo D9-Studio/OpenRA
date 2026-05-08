@@ -1,0 +1,56 @@
+# Using RA structure sprites as placeholders
+# Replace with custom art later
+
+mcmd:
+	Inherits: fact
+
+mpwr:
+	Inherits: powr
+
+mbar:
+	Inherits: barr
+
+mfact:
+	Inherits: weap
+
+mref:
+	Inherits: proc
+
+mrad:
+	Inherits: dome
+
+mair:
+	Inherits: afld
+
+mtec:
+	Inherits: atek
+
+mdome:
+	Inherits: sam
+
+mpil:
+	Inherits: pbox
+
+qcmd:
+	Inherits: fact
+
+qpwr:
+	Inherits: apwr
+
+qbar:
+	Inherits: barr
+
+qfact:
+	Inherits: weap
+
+qref:
+	Inherits: proc
+
+qprop:
+	Inherits: dome
+
+qhang:
+	Inherits: afld
+
+qrpit:
+	Inherits: sam

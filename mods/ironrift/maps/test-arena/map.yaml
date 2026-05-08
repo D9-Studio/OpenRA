@@ -1,0 +1,46 @@
+MapFormat: 12
+
+RequiresMod: ironrift
+
+Title: Iron Rift Test Arena
+
+Author: Developer
+
+Tileset: TEMPERAT
+
+MapSize: 64,64
+
+Bounds: 4,4,56,56
+
+Visibility: Lobby
+
+Categories: Skirmish
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: magen
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: magen
+	PlayerReference@Multi0:
+		Name: Multi0
+		Playable: True
+		AllowBots: True
+		Faction: magen
+	PlayerReference@Multi1:
+		Name: Multi1
+		Playable: True
+		AllowBots: True
+		Faction: muqawama
+
+Actors:
+	Actor0: mpspawn
+		Location: 10,10
+		Owner: Neutral
+	Actor1: mpspawn
+		Location: 52,52
+		Owner: Neutral

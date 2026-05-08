@@ -1,0 +1,351 @@
+# ============================================================
+# MAGEN VEHICLES
+# ============================================================
+
+EITAN:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: mfact, ~structures.magen
+		Description: actor-eitan.description
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-eitan.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 113
+		Locomotor: wheeled
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 28
+	Armament@PRIMARY:
+		Weapon: Autocannon30mm
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 768,0,90
+	Armament@SECONDARY:
+		Weapon: SpikeMissile
+		LocalOffset: 0,0,340
+		Name: secondary
+	AttackTurreted:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 6
+	Selectable:
+		DecorationBounds: 1194, 1194
+
+MRKVA:
+	Inherits: ^HeavyTrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: mfact, mrad, ~structures.magen
+		Description: actor-mrkva.description
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-mrkva.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 72
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 20
+	Armament@PRIMARY:
+		Weapon: MerkavaGun120mm
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 1024,0,256
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Weapon: CoaxialMG
+		LocalOffset: 768,170,256
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+	Selectable:
+		DecorationBounds: 1536, 1536
+
+D9BLD:
+	Inherits: ^HeavyTrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: mfact, ~structures.magen
+		Description: actor-d9bld.description
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: actor-d9bld.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 45000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 40
+	RevealsShroud:
+		Range: 4c0
+	Crushes:
+	Demolishable:
+	Selectable:
+		DecorationBounds: 1536, 1536
+
+NAMER:
+	Inherits: ^HeavyTrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: mfact, mbar, ~structures.magen
+		Description: actor-namer.description
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: actor-namer.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 35000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 65
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 28
+	Armament:
+		Weapon: HeavyMG50cal
+		LocalOffset: 512,0,384
+	AttackTurreted:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 8
+	Selectable:
+		DecorationBounds: 1536, 1536
+
+# --- Magen Harvester ---
+
+MHVR:
+	Inherits: ^HeavyTrackedVehicle
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: actor-mhvr.name
+	Health:
+		HP: 30000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 65
+	RevealsShroud:
+		Range: 4c0
+	Harvester:
+		Capacity: 28
+		Resources: Ore, Gems
+		SearchFromProceedingRecipient: True
+		SearchFromOrderRecipient: True
+		DeliveryBuildings: mref
+	Selectable:
+		DecorationBounds: 1194, 1194
+
+# ============================================================
+# MUQAWAMA VEHICLES
+# ============================================================
+
+TECH:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: qfact, ~structures.muqawama
+		Description: actor-tech.description
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: actor-tech.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	Armor:
+		Type: None
+	Mobile:
+		Speed: 140
+		Locomotor: wheeled
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 32
+	Armament:
+		Weapon: DShKMG
+		LocalOffset: 0,0,340
+	AttackTurreted:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+	Selectable:
+		DecorationBounds: 1024, 1024
+
+BMP1:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: qfact, ~structures.muqawama
+		Description: actor-bmp1.description
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: actor-bmp1.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 18000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 85
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 24
+	Armament@PRIMARY:
+		Weapon: BMP73mm
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 512,0,128
+	AttackTurreted:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 6
+	Selectable:
+		DecorationBounds: 1194, 1194
+
+KATYUSHA:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: qfact, qprop, ~structures.muqawama
+		Description: actor-katyusha.description
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-katyusha.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 12000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 72
+		Locomotor: wheeled
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: GradRocket
+	AutoTarget:
+		ScanRadius: 10
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: True
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 1194, 1194
+
+VBIED:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: qfact, qprop, ~structures.muqawama
+		Description: actor-vbied.description
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: actor-vbied.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 12000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 113
+		Locomotor: wheeled
+	RevealsShroud:
+		Range: 3c0
+	Armament:
+		Weapon: VBIEDExplosion
+	AttackFrontal:
+	Explodes:
+		Weapon: VBIEDExplosion
+		EmptyWeapon: VBIEDExplosion
+	Targetable:
+		TargetTypes: GroundActor, Vehicle
+	Selectable:
+		DecorationBounds: 1024, 1024
+
+# --- Muqawama Harvester ---
+
+QHVR:
+	Inherits: ^TrackedVehicle
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-qhvr.name
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 72
+	RevealsShroud:
+		Range: 4c0
+	Harvester:
+		Capacity: 20
+		Resources: Ore, Gems
+		SearchFromProceedingRecipient: True
+		SearchFromOrderRecipient: True
+		DeliveryBuildings: qref
+	Selectable:
+		DecorationBounds: 1194, 1194

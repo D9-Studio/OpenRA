@@ -1,0 +1,276 @@
+Metadata:
+	Title: Iron Rift
+	Version: {DEV_VERSION}
+	Website: https://github.com/openra/openra
+	WindowTitle: Iron Rift
+
+PackageFormats: Mix
+
+FileSystem: ContentInstallerFileSystem
+	SystemPackages:
+		^EngineDir
+		$ironrift: ironrift
+		^EngineDir|mods/common: common
+		~^SupportDir|Content/ra/v2/: content
+		common|scripts
+		ironrift|bits
+	ContentPackages:
+		content|allies.mix
+		content|conquer.mix
+		content|interior.mix
+		content|lores.mix: lores
+		content|hires.mix
+		content|local.mix
+		content|russian.mix
+		content|snow.mix
+		content|sounds.mix
+		content|speech.mix
+		content|temperat.mix
+		content|expand
+		content|expand/expand2.mix
+		content|expand/lores1.mix
+		content|expand/hires1.mix
+		content|cnc/desert.mix
+		~content|movies
+		~content|scores.mix
+		~content|general.mix
+		ironrift|bits
+	RequiredContentFiles:
+		content|expand/chrotnk1.aud
+		content|expand/fixit1.aud
+		content|expand/jburn1.aud
+	ContentInstallerMod: ra-content
+
+MapFolders:
+	ironrift|maps: System
+	~^SupportDir|maps/ironrift/{DEV_VERSION}: User
+
+Rules:
+	ironrift|rules/misc.yaml
+	ironrift|rules/ai.yaml
+	ironrift|rules/player.yaml
+	ironrift|rules/palettes.yaml
+	ironrift|rules/world.yaml
+	ironrift|rules/defaults.yaml
+	ironrift|rules/vehicles.yaml
+	ironrift|rules/structures.yaml
+	ironrift|rules/infantry.yaml
+	ironrift|rules/aircraft.yaml
+
+Sequences:
+	^EngineDir|mods/ra/sequences/ships.yaml
+	^EngineDir|mods/ra/sequences/vehicles.yaml
+	^EngineDir|mods/ra/sequences/structures.yaml
+	^EngineDir|mods/ra/sequences/infantry.yaml
+	^EngineDir|mods/ra/sequences/aircraft.yaml
+	^EngineDir|mods/ra/sequences/misc.yaml
+	^EngineDir|mods/ra/sequences/decorations.yaml
+	ironrift|sequences/vehicles.yaml
+	ironrift|sequences/structures.yaml
+	ironrift|sequences/infantry.yaml
+	ironrift|sequences/aircraft.yaml
+	ironrift|sequences/misc.yaml
+
+TileSets:
+	^EngineDir|mods/ra/tilesets/temperat.yaml
+	^EngineDir|mods/ra/tilesets/desert.yaml
+	^EngineDir|mods/ra/tilesets/snow.yaml
+
+Cursors:
+	^EngineDir|mods/ra/cursors.yaml
+
+Chrome:
+	^EngineDir|mods/ra/chrome.yaml
+
+Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll
+
+ChromeLayout:
+	common|chrome/ingame.yaml
+	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-transients.yaml
+	common|chrome/ingame-fmvplayer.yaml
+	common|chrome/ingame-info.yaml
+	common|chrome/ingame-infoscripterror.yaml
+	common|chrome/ingame-infobriefing.yaml
+	common|chrome/ingame-infoobjectives.yaml
+	common|chrome/ingame-infostats.yaml
+	common|chrome/ingame-info-lobby-options.yaml
+	common|chrome/ingame-menu.yaml
+	^EngineDir|mods/ra/chrome/ingame-observer.yaml
+	^EngineDir|mods/ra/chrome/ingame-player.yaml
+	common|chrome/ingame-perf.yaml
+	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-debug-hpf.yaml
+	common|chrome/ingame-debuginfo.yaml
+	common|chrome/ingame-infochat.yaml
+	common|chrome/mainmenu.yaml
+	common|chrome/mainmenu-prompts.yaml
+	common|chrome/settings.yaml
+	common|chrome/settings-display.yaml
+	common|chrome/settings-audio.yaml
+	common|chrome/settings-input.yaml
+	common|chrome/settings-hotkeys.yaml
+	common|chrome/settings-gameplay.yaml
+	common|chrome/settings-advanced.yaml
+	common|chrome/credits.yaml
+	common|chrome/lobby.yaml
+	common|chrome/lobby-mappreview.yaml
+	common|chrome/lobby-players.yaml
+	common|chrome/lobby-options.yaml
+	common|chrome/lobby-music.yaml
+	common|chrome/lobby-servers.yaml
+	common|chrome/lobby-kickdialogs.yaml
+	common|chrome/color-picker.yaml
+	common|chrome/map-chooser.yaml
+	common|chrome/multiplayer-browser.yaml
+	common|chrome/multiplayer-browserpanels.yaml
+	common|chrome/multiplayer-createserver.yaml
+	common|chrome/multiplayer-directconnect.yaml
+	common|chrome/connection.yaml
+	common|chrome/replaybrowser.yaml
+	common|chrome/gamesave-browser.yaml
+	common|chrome/load-game-browser.yaml
+	^EngineDir|mods/ra/chrome/gamesave-loading.yaml
+	common|chrome/dropdowns.yaml
+	common|chrome/musicplayer.yaml
+	common|chrome/tooltips.yaml
+	common|chrome/assetbrowser.yaml
+	common|chrome/missionbrowser.yaml
+	common|chrome/confirmation-dialogs.yaml
+	common|chrome/editor.yaml
+	common|chrome/playerprofile.yaml
+	common|chrome/text-notifications.yaml
+
+FluentMessages:
+	common|fluent/common.ftl
+	common|fluent/chrome.ftl
+	common|fluent/hotkeys.ftl
+	common|fluent/rules.ftl
+	ironrift|fluent/ironrift.ftl
+	ironrift|fluent/rules.ftl
+
+AllowUnusedFluentMessagesInExternalPackages: false
+
+Weapons:
+	ironrift|weapons/smallcaliber.yaml
+	ironrift|weapons/ballistics.yaml
+	ironrift|weapons/missiles.yaml
+	ironrift|weapons/explosives.yaml
+
+Voices:
+	^EngineDir|mods/ra/audio/voices.yaml
+
+Notifications:
+	^EngineDir|mods/ra/audio/notifications.yaml
+
+Music:
+	^EngineDir|mods/ra/audio/music.yaml
+
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	common|hotkeys/chat.yaml
+	common|hotkeys/editor.yaml
+	common|hotkeys/control-groups.yaml
+
+LoadScreen: LogoStripeLoadScreen
+	Image: ^EngineDir|mods/ra/uibits/loadscreen.png
+	Image2x: ^EngineDir|mods/ra/uibits/loadscreen-2x.png
+	Image3x: ^EngineDir|mods/ra/uibits/loadscreen-3x.png
+
+ServerTraits:
+	LobbyCommands
+	SkirmishLogic
+	PlayerPinger
+	MasterServerPinger
+
+ChromeMetrics:
+	common|metrics.yaml
+	^EngineDir|mods/ra/metrics.yaml
+
+Fonts:
+	Tiny:
+		Font: common|FreeSans.ttf
+		Size: 10
+		Ascender: 8
+	TinyBold:
+		Font: common|FreeSansBold.ttf
+		Size: 10
+		Ascender: 8
+	Small:
+		Font: common|FreeSans.ttf
+		Size: 12
+		Ascender: 9
+	Regular:
+		Font: common|FreeSans.ttf
+		Size: 14
+		Ascender: 11
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size: 14
+		Ascender: 11
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size: 18
+		Ascender: 14
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size: 24
+		Ascender: 18
+	Title:
+		Font: common|FreeSansBold.ttf
+		Size: 48
+		Ascender: 26
+
+MapGrid:
+	Type: Rectangular
+
+DefaultOrderGenerator: UnitOrderGenerator
+
+SupportsMapsFrom: ironrift
+
+SoundFormats: Aud, Wav
+
+SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS
+
+VideoFormats: Vqa, Wsa
+
+TerrainFormat: DefaultTerrain
+
+SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
+
+AssetBrowser:
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int
+	AudioExtensions: .aud, .wav, .r00, .r01, .r02, .r03, .v00, .v01, .v02, .v03
+	VideoExtensions: .vqa, .wsa
+
+GameSpeeds:
+	DefaultSpeed: default
+	Speeds:
+		slowest:
+			Name: options-game-speed.slowest
+			Timestep: 80
+			OrderLatency: 2
+		slower:
+			Name: options-game-speed.slower
+			Timestep: 50
+			OrderLatency: 3
+		default:
+			Name: options-game-speed.normal
+			Timestep: 40
+			OrderLatency: 3
+		fast:
+			Name: options-game-speed.fast
+			Timestep: 35
+			OrderLatency: 4
+		faster:
+			Name: options-game-speed.faster
+			Timestep: 30
+			OrderLatency: 4
+		fastest:
+			Name: options-game-speed.fastest
+			Timestep: 20
+			OrderLatency: 6

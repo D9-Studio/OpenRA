@@ -1,0 +1,579 @@
+# ============================================================
+# MAGEN STRUCTURES
+# ============================================================
+
+MCMD:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~structures.magen
+		Description: actor-mcmd.description
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-mcmd.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 150000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 8c0
+	Power:
+		Amount: 50
+	BaseBuilding:
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@faction:
+		Factions: magen
+		Prerequisite: structures.magen
+	Production:
+		Produces: Building, Defense
+	ProductionBar:
+	WithSpriteBody:
+	Selectable:
+		Bounds: 2048, 2048
+
+MPWR:
+	Inherits: ^Building
+	Inherits@shape: ^2x1Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Prerequisites: ~structures.magen
+		Description: actor-mpwr.description
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: actor-mpwr.name
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	Power:
+		Amount: 100
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 2048, 1024
+
+MBAR:
+	Inherits: ^Building
+	Inherits@shape: ^2x1Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: mcmd, ~structures.magen
+		Description: actor-mbar.description
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: actor-mbar.name
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Infantry
+	ProductionBar:
+	RallyPoint:
+		Path: rally
+	Exit@1:
+		SpawnOffset: 256,512,0
+		ExitCell: 0,1
+	Selectable:
+		Bounds: 2048, 1024
+
+MFACT:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: mbar, ~structures.magen
+		Description: actor-mfact.description
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: actor-mfact.name
+	Building:
+		Footprint: xxx xx=
+		Dimensions: 3,2
+	Health:
+		HP: 80000
+	Armor:
+		Type: Heavy
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Vehicle
+	ProductionBar:
+	RallyPoint:
+		Path: rally
+	Exit@1:
+		SpawnOffset: 512,768,0
+		ExitCell: 1,2
+	Selectable:
+		Bounds: 3072, 2048
+
+MREF:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: mcmd, ~structures.magen
+		Description: actor-mref.description
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: actor-mref.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 70000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	Refinery:
+		ResourceCapacity: 2000
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: mhvr
+	RallyPoint:
+		Path: rally
+	Selectable:
+		Bounds: 2048, 2048
+
+MRAD:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x1Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: mref, ~structures.magen
+		Description: actor-mrad.description
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-mrad.name
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:
+	ProvidesRadar:
+		RequiresCondition: !disabled
+	Selectable:
+		Bounds: 2048, 1024
+
+MAIR:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 70
+		Prerequisites: mfact, mrad, ~structures.magen
+		Description: actor-mair.description
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-mair.name
+	Building:
+		Footprint: xxx xx=
+		Dimensions: 3,2
+	Health:
+		HP: 60000
+	Armor:
+		Type: Light
+	Power:
+		Amount: -60
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Aircraft
+	ProductionBar:
+	Selectable:
+		Bounds: 3072, 2048
+
+MTEC:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 80
+		Prerequisites: mrad, mfact, ~structures.magen
+		Description: actor-mtec.description
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-mtec.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -80
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 2048, 2048
+
+# --- Magen Defenses ---
+
+MDOME:
+	Inherits: ^DefenseBuilding
+	Inherits@shape: ^1x1Shape
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: mrad, ~structures.magen
+		Description: actor-mdome.description
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-mdome.name
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	Power:
+		Amount: -40
+	Armament:
+		Weapon: IronDomeInterceptor
+		LocalOffset: 0,0,512
+	AttackTurreted:
+	Turreted:
+		TurnSpeed: 255
+	Selectable:
+		Bounds: 1024, 1024
+
+MPIL:
+	Inherits: ^DefenseBuilding
+	Inherits@shape: ^1x1Shape
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: mbar, ~structures.magen
+		Description: actor-mpil.description
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-mpil.name
+	Health:
+		HP: 50000
+	Armor:
+		Type: Concrete
+	Power:
+		Amount: -10
+	Armament@PRIMARY:
+		Weapon: PillboxMG
+	Armament@SECONDARY:
+		Weapon: PillboxAT
+		LocalOffset: 0,0,340
+	AttackTurreted:
+	Turreted:
+		TurnSpeed: 28
+	Selectable:
+		Bounds: 1024, 1024
+
+# ============================================================
+# MUQAWAMA STRUCTURES
+# ============================================================
+
+QCMD:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~structures.muqawama
+		Description: actor-qcmd.description
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: actor-qcmd.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 100000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	Power:
+		Amount: 30
+	BaseBuilding:
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@faction:
+		Factions: muqawama
+		Prerequisite: structures.muqawama
+	Production:
+		Produces: Building, Defense
+	ProductionBar:
+	Selectable:
+		Bounds: 2048, 2048
+
+QPWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Prerequisites: ~structures.muqawama
+		Description: actor-qpwr.description
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: actor-qpwr.name
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	Power:
+		Amount: 60
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 1024, 1024
+
+QBAR:
+	Inherits: ^Building
+	Inherits@shape: ^2x1Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: qcmd, ~structures.muqawama
+		Description: actor-qbar.description
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: actor-qbar.name
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -10
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Infantry
+	ProductionBar:
+	RallyPoint:
+		Path: rally
+	Exit@1:
+		SpawnOffset: 256,512,0
+		ExitCell: 0,1
+	Selectable:
+		Bounds: 2048, 1024
+
+QFACT:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: qbar, ~structures.muqawama
+		Description: actor-qfact.description
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: actor-qfact.name
+	Building:
+		Footprint: xxx xx=
+		Dimensions: 3,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	Power:
+		Amount: -25
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Vehicle
+	ProductionBar:
+	RallyPoint:
+		Path: rally
+	Exit@1:
+		SpawnOffset: 512,768,0
+		ExitCell: 1,2
+	Selectable:
+		Bounds: 3072, 2048
+
+QREF:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: qcmd, ~structures.muqawama
+		Description: actor-qref.description
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-qref.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -15
+	ProvidesPrerequisite@buildingname:
+	Refinery:
+		ResourceCapacity: 1500
+		DiscardExcessResources: false
+	FreeActor:
+		Actor: qhvr
+	RallyPoint:
+		Path: rally
+	Selectable:
+		Bounds: 2048, 2048
+
+QPROP:
+	Inherits: ^ScienceBuilding
+	Inherits@shape: ^2x1Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: qbar, ~structures.muqawama
+		Description: actor-qprop.description
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-qprop.name
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 35000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 2048, 1024
+
+QHANG:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 70
+		Prerequisites: qfact, ~structures.muqawama
+		Description: actor-qhang.description
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: actor-qhang.name
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	Production:
+		Produces: Aircraft
+	ProductionBar:
+	Selectable:
+		Bounds: 2048, 2048
+
+# --- Muqawama Defenses ---
+
+QRPIT:
+	Inherits: ^DefenseBuilding
+	Inherits@shape: ^1x1Shape
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: qbar, ~structures.muqawama
+		Description: actor-qrpit.description
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: actor-qrpit.name
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	Power:
+		Amount: -10
+	Armament:
+		Weapon: GradRocket
+		LocalOffset: 0,0,512
+	AttackTurreted:
+	Turreted:
+		TurnSpeed: 16
+	Selectable:
+		Bounds: 1024, 1024
+
+# ============================================================
+# SHARED / MCV
+# ============================================================
+
+MCV:
+	Inherits: ^HeavyTrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: actor-mcv.name
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 56
+	RevealsShroud:
+		Range: 8c0
+	GrantConditionOnFaction@MUQ:
+		Factions: muqawama
+		Condition: muq-faction
+	Transforms:
+		RequiresCondition: !muq-faction
+		IntoActor: mcmd
+		Offset: -1,-1
+		Facing: 384
+		TransformSounds: placbldg.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+	Transforms@MUQ:
+		RequiresCondition: muq-faction
+		IntoActor: qcmd
+		Offset: -1,-1
+		Facing: 384
+		TransformSounds: placbldg.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+	INotifyTransform:
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 1536, 1536

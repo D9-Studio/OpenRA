@@ -1,0 +1,14 @@
+# Using RA aircraft sprites as placeholders
+# Replace with custom art later
+
+hermes:
+	Inherits: heli
+
+harop:
+	Inherits: hind
+
+shahed:
+	Inherits: mig
+
+ababil:
+	Inherits: yak

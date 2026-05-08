@@ -1,0 +1,252 @@
+# ============================================================
+# MAGEN INFANTRY
+# ============================================================
+
+LOHAM:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: mbar, ~structures.magen
+		Description: actor-loham.description
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: actor-loham.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Speed: 56
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: TavorRifle
+	AttackFrontal:
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+MAGLAN:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 20
+		Prerequisites: mbar, mfact, ~structures.magen
+		Description: actor-maglan.description
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: actor-maglan.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4500
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: SpikeMissile
+	AttackFrontal:
+		TargetFrozenActors: True
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+SAYRT:
+	Inherits: ^Soldier
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: mbar, mtec, ~structures.magen
+		Description: actor-sayrt.description
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-sayrt.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 7500
+	Mobile:
+		Speed: 65
+	RevealsShroud:
+		Range: 6c0
+	Armament@PRIMARY:
+		Weapon: MicroTavor
+	Armament@SECONDARY:
+		Weapon: DemoCharge
+		Name: secondary
+	AttackFrontal:
+	Cloak:
+		InitialDelay: 100
+		CloakDelay: 80
+		UncloakOn: Attack, Move, Damage
+		CloakSound: cloak.aud
+		UncloakSound: uncloak.aud
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+OKETZ:
+	Inherits: ^Soldier
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Dog
+		BuildPaletteOrder: 40
+		Prerequisites: mbar, ~structures.magen
+		Description: actor-oketz.description
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: actor-oketz.name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 3500
+	Mobile:
+		Speed: 100
+	RevealsShroud:
+		Range: 6c512
+	Armament:
+		Weapon: DogJaw
+	AttackFrontal:
+	DetectCloaked:
+		Range: 5c0
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+# ============================================================
+# MUQAWAMA INFANTRY
+# ============================================================
+
+MUJHD:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: qbar, ~structures.muqawama
+		Description: actor-mujhd.description
+	Valued:
+		Cost: 80
+	Tooltip:
+		Name: actor-mujhd.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 3500
+	Mobile:
+		Speed: 56
+	RevealsShroud:
+		Range: 4c0
+	Armament:
+		Weapon: AK47
+	AttackFrontal:
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+RPGFD:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 20
+		Prerequisites: qbar, ~structures.muqawama
+		Description: actor-rpgfd.description
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: actor-rpgfd.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 3200
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 4c512
+	Armament:
+		Weapon: RPG7
+	AttackFrontal:
+		TargetFrozenActors: True
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+KRNCT:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: qbar, qprop, ~structures.muqawama
+		Description: actor-krnct.description
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: actor-krnct.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4000
+	Mobile:
+		Speed: 35
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: KornetATGM
+	AttackFrontal:
+		TargetFrozenActors: True
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+
+MARTYR:
+	Inherits: ^Soldier
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 40
+		Prerequisites: qbar, qprop, ~structures.muqawama
+		Description: actor-martyr.description
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: actor-martyr.name
+		GenericName: actor-infantry.generic-name
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 2000
+	Mobile:
+		Speed: 72
+	RevealsShroud:
+		Range: 3c0
+	Armament:
+		Weapon: ExplosiveVest
+	AttackFrontal:
+	Explodes:
+		Weapon: MartyrExplosion
+		EmptyWeapon: MartyrExplosion
+	Targetable:
+		TargetTypes: GroundActor, Infantry

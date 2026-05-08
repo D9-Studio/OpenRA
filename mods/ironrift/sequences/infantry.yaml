@@ -1,0 +1,26 @@
+# Using RA infantry sprites as placeholders
+# Replace with custom art later
+
+loham:
+	Inherits: e1
+
+maglan:
+	Inherits: e3
+
+sayrt:
+	Inherits: spy
+
+oketz:
+	Inherits: dog
+
+mujhd:
+	Inherits: e1
+
+rpgfd:
+	Inherits: e3
+
+krnct:
+	Inherits: e3
+
+martyr:
+	Inherits: e4

@@ -1,0 +1,227 @@
+# Bot configuration — all BotModules must live on the Player actor (not World).
+
+Player:
+	ModularBot@RushAI:
+		Name: Rush AI
+		Type: rush
+	ModularBot@NormalAI:
+		Name: Normal AI
+		Type: normal
+	GrantConditionOnBotOwner@rush:
+		Condition: enable-rush-ai
+		Bots: rush
+	GrantConditionOnBotOwner@normal:
+		Condition: enable-normal-ai
+		Bots: normal
+	ResourceMapBotModule:
+		RequiresCondition: enable-rush-ai || enable-normal-ai
+		ValuableResourceTypes: Ore, Gems
+		HarvesterTypes: mhvr, qhvr
+		RefineryTypes: mref, qref
+		EnemyBaseBuildingTypes: mcmd, qcmd, mref, qref, mbar, qbar, mfact, qfact, mair, qhang, mdome, mpil, qrpit, mpwr, qpwr, mrad, mtec, qprop
+	HarvesterBotModule@rush:
+		RequiresCondition: enable-rush-ai
+		HarvesterTypes: mhvr, qhvr
+		RefineryTypes: mref, qref
+		InitialHarvesters: 2
+	HarvesterBotModule@normal:
+		RequiresCondition: enable-normal-ai
+		HarvesterTypes: mhvr, qhvr
+		RefineryTypes: mref, qref
+		InitialHarvesters: 4
+	BuildingRepairBotModule:
+		RequiresCondition: enable-rush-ai || enable-normal-ai
+	BaseBuilderBotModule@rush:
+		RequiresCondition: enable-rush-ai
+		MinimumExcessPower: 0
+		MaximumExcessPower: 160
+		ExcessPowerIncrement: 40
+		ExcessPowerIncreaseThreshold: 4
+		ConstructionYardTypes: mcmd, qcmd
+		RefineryTypes: mref, qref
+		PowerTypes: mpwr, qpwr
+		ExpansionTolerate: 0
+		ForceExpansionTolerate: 0
+		TechTypes: mrad, mair, mtec, qprop, qhang
+		InititalMinimumRefineryCount: 0
+		AdditionalMinimumRefineryCount: 2
+		ProductionTypes: mbar, mfact, qbar, qfact, mair, qhang
+		NewProductionCashThreshold: 7000
+		DefenseTypes: mdome, mpil, qrpit
+		BuildingLimits:
+			mbar: 4
+			qbar: 4
+			mfact: 4
+			qfact: 4
+			mrad: 1
+			mair: 1
+			mtec: 1
+			qprop: 1
+			qhang: 1
+			mdome: 2
+			mpil: 4
+			qrpit: 4
+		BuildingFractions:
+			mpwr: 1
+			qpwr: 1
+			mref: 1
+			qref: 1
+			mbar: 3
+			qbar: 3
+			mfact: 4
+			qfact: 4
+			mpil: 3
+			mdome: 3
+			qrpit: 3
+			mrad: 1
+			mair: 1
+			mtec: 1
+			qprop: 1
+			qhang: 1
+		BuildingDelays:
+			mrad: 6000
+			mair: 8000
+			mtec: 11000
+	BaseBuilderBotModule@normal:
+		RequiresCondition: enable-normal-ai
+		MinimumExcessPower: 0
+		MaximumExcessPower: 200
+		ExcessPowerIncrement: 40
+		ExcessPowerIncreaseThreshold: 4
+		ConstructionYardTypes: mcmd, qcmd
+		RefineryTypes: mref, qref
+		PowerTypes: mpwr, qpwr
+		InititalMinimumRefineryCount: 0
+		AdditionalMinimumRefineryCount: 2
+		ExpansionTolerate: 1,2
+		TechTypes: mrad, mair, mtec, qprop, qhang
+		ProductionTypes: mbar, mfact, qbar, qfact, mair, qhang
+		NewProductionCashThreshold: 8000
+		DefenseTypes: mdome, mpil, qrpit
+		BuildingLimits:
+			mbar: 4
+			qbar: 4
+			mfact: 4
+			qfact: 4
+			mrad: 1
+			mair: 1
+			mtec: 1
+			qprop: 1
+			qhang: 1
+			mdome: 2
+			mpil: 6
+			qrpit: 6
+		BuildingFractions:
+			mpwr: 1
+			qpwr: 1
+			mref: 1
+			qref: 1
+			mbar: 3
+			qbar: 3
+			mfact: 4
+			qfact: 4
+			mpil: 5
+			mdome: 2
+			qrpit: 5
+			mrad: 1
+			mair: 1
+			mtec: 1
+			qprop: 1
+			qhang: 1
+		BuildingDelays:
+			mrad: 6000
+			mair: 8000
+			mtec: 9000
+	SquadManagerBotModule@rush:
+		RequiresCondition: enable-rush-ai
+		SquadSize: 20
+		ExcludeFromSquadsTypes: mhvr, qhvr, mcv, oketz
+		ConstructionYardTypes: mcmd, qcmd
+		AirUnitsTypes: hermes, harop, shahed, ababil
+		AircraftTargetType: AirborneActor
+		ProtectionTypes: mcmd, qcmd, mref, qref, mpwr, qpwr, mbar, qbar, mfact, qfact, mrad, mair, mtec, mdome, mpil, qprop, qhang, qrpit
+		IgnoredEnemyTargetTypes: AirborneActor
+	SquadManagerBotModule@normal:
+		RequiresCondition: enable-normal-ai
+		SquadSize: 40
+		ExcludeFromSquadsTypes: mhvr, qhvr, mcv, oketz
+		ConstructionYardTypes: mcmd, qcmd
+		AirUnitsTypes: hermes, harop, shahed, ababil
+		AircraftTargetType: AirborneActor
+		ProtectionTypes: mcmd, qcmd, mref, qref, mpwr, qpwr, mbar, qbar, mfact, qfact, mrad, mair, mtec, mdome, mpil, qprop, qhang, qrpit
+		IgnoredEnemyTargetTypes: AirborneActor
+	McvExpansionManagerBotModule@rush:
+		RequiresCondition: enable-rush-ai
+		McvTypes: mcv
+		ConstructionYardTypes: mcmd, qcmd
+		McvFactoryTypes: mfact, qfact
+		MoveOldConyardFirst: true
+		MinimumConstructionYardCount: 2
+	McvExpansionManagerBotModule@normal:
+		RequiresCondition: enable-normal-ai
+		McvTypes: mcv
+		ConstructionYardTypes: mcmd, qcmd
+		McvFactoryTypes: mfact, qfact
+		MinimumConstructionYardCount: 2
+	UnitBuilderBotModule@rush:
+		RequiresCondition: enable-rush-ai
+		UnitsToBuild:
+			loham: 40
+			maglan: 25
+			sayrt: 5
+			oketz: 10
+			eitan: 30
+			mrkva: 35
+			d9bld: 8
+			namer: 15
+			mhvr: 12
+			qhvr: 12
+			tech: 40
+			bmp1: 30
+			katyusha: 25
+			vbied: 10
+			mujhd: 60
+			rpgfd: 30
+			krnct: 20
+			martyr: 10
+			hermes: 15
+			harop: 20
+			shahed: 35
+			ababil: 15
+		UnitLimits:
+			oketz: 3
+			mhvr: 8
+			qhvr: 8
+			sayrt: 2
+			martyr: 4
+	UnitBuilderBotModule@normal:
+		RequiresCondition: enable-normal-ai
+		UnitsToBuild:
+			loham: 50
+			maglan: 30
+			sayrt: 8
+			oketz: 12
+			eitan: 35
+			mrkva: 40
+			d9bld: 10
+			namer: 20
+			mhvr: 12
+			qhvr: 12
+			tech: 45
+			bmp1: 35
+			katyusha: 30
+			vbied: 8
+			mujhd: 65
+			rpgfd: 35
+			krnct: 25
+			martyr: 8
+			hermes: 20
+			harop: 25
+			shahed: 40
+			ababil: 20
+		UnitLimits:
+			oketz: 4
+			mhvr: 8
+			qhvr: 8
+			sayrt: 3
+			martyr: 3

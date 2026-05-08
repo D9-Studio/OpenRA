@@ -1,0 +1,105 @@
+Autocannon30mm:
+	ReloadDelay: 15
+	Range: 5c768
+	Report: cannon2.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor
+	Projectile: Bullet
+		Speed: 853
+		Image: 50CAL
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 3000
+		ValidTargets: GroundActor, WaterActor, AirborneActor
+		Versus:
+			None: 40
+			Wood: 80
+			Light: 120
+			Heavy: 60
+			Concrete: 40
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom12.aud
+		ValidTargets: Ground, GroundActor, WaterActor
+
+MerkavaGun120mm:
+	ReloadDelay: 65
+	Range: 7c0
+	Burst: 1
+	Report: cannon1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	InvalidTargets: Air, Infantry
+	Projectile: Bullet
+		Speed: 768
+		Image: 120MM
+		Shadow: True
+	Warhead@1Dam: SpreadDamage
+		Spread: 170
+		Damage: 7500
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 30
+			Wood: 80
+			Light: 100
+			Heavy: 125
+			Concrete: 65
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor, WaterActor
+
+BMP73mm:
+	ReloadDelay: 40
+	Range: 5c0
+	Report: cannon2.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: Bullet
+		Speed: 682
+		Image: 120MM
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 3500
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 30
+			Wood: 75
+			Light: 90
+			Heavy: 60
+			Concrete: 40
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom12.aud
+		ValidTargets: Ground, GroundActor, WaterActor
+
+PillboxAT:
+	ReloadDelay: 60
+	Range: 6c512
+	Report: cannon1.aud
+	ValidTargets: Ground, GroundActor
+	InvalidTargets: Infantry
+	Projectile: Bullet
+		Speed: 768
+		Image: 120MM
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 5000
+		ValidTargets: GroundActor
+		Versus:
+			None: 20
+			Wood: 60
+			Light: 100
+			Heavy: 100
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor
