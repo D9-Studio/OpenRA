@@ -297,6 +297,7 @@
 
 ^Soldier:
 	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
 	Inherits@bounty: ^GlobalBounty
 	Inherits@handicaps: ^PlayerHandicaps
 	Huntable:
@@ -388,7 +389,6 @@
 	CaptureNotification:
 		Notification: BuildingCaptured
 		TextNotification: notification-building-captured
-		LoseNotification: BuildingLost
 		LoseTextNotification: notification-building-lost
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged

@@ -92,7 +92,7 @@ Player:
 	DamageNotifier:
 		ValidTargets: Structure
 		NotifyInterval: 30000
-		Notification: BaseUnderAttack
+		Notification: BaseAttack
 		TextNotification: notification-base-under-attack
 		AllyTextNotification: notification-ally-under-attack
 	MissionObjectives:
