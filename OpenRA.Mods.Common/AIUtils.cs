@@ -93,5 +93,24 @@ namespace OpenRA.Mods.Common
 				};
 			}
 		}
+
+		/// <summary>
+		/// Returns the <see cref="TransformsInfo"/> for the actor's enabled <see cref="Transforms"/> trait when multiple
+		/// <c>Transforms@</c> variants exist (e.g. faction-specific MCV deployment).
+		/// </summary>
+		public static TransformsInfo ActiveTransformsInfo(Actor actor)
+		{
+			return ActiveTransforms(actor)?.Info;
+		}
+
+		/// <summary>
+		/// Returns the actor's enabled <see cref="Transforms"/> trait when multiple <c>Transforms@</c> variants exist
+		/// (e.g. faction-specific MCV deployment). Returns <c>null</c> if no enabled instance is found.
+		/// </summary>
+		public static Transforms ActiveTransforms(Actor actor)
+		{
+			return actor.TraitsImplementing<Transforms>()
+				.FirstOrDefault(x => !x.IsTraitDisabled && !x.IsTraitPaused);
+		}
 	}
 }

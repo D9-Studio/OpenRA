@@ -4,7 +4,7 @@ RequiresMod: ironrift
 
 Title: Iron Rift Test Arena
 
-Author: Developer
+Author: D9 Studio
 
 Tileset: TEMPERAT
 
@@ -12,9 +12,9 @@ MapSize: 64,64
 
 Bounds: 4,4,56,56
 
-Visibility: Lobby
+Visibility: Lobby, Shellmap
 
-Categories: Skirmish
+Categories: Skirmish, Shellmap
 
 Players:
 	PlayerReference@Neutral:
@@ -30,11 +30,13 @@ Players:
 		Name: Multi0
 		Playable: True
 		AllowBots: True
+		Required: True
 		Faction: magen
 	PlayerReference@Multi1:
 		Name: Multi1
 		Playable: True
 		AllowBots: True
+		Required: True
 		Faction: muqawama
 
 Actors:

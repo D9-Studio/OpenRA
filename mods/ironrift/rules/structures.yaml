@@ -26,13 +26,19 @@ MCMD:
 	Power:
 		Amount: 50
 	BaseBuilding:
+	MustBeDestroyed:
+		RequiredForShortGame: true
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@faction:
 		Factions: magen
 		Prerequisite: structures.magen
 	Production:
 		Produces: Building, Defense
-	ProductionBar:
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+		Color: 8A8A8A
 	WithSpriteBody:
 	Selectable:
 		Bounds: 2048, 2048
@@ -87,8 +93,11 @@ MBAR:
 	Production:
 		Produces: Infantry
 	ProductionBar:
+		ProductionType: Infantry
 	RallyPoint:
-		Path: rally
+		ForceSetType: Infantry
+	CommandBarBlacklist:
+		DisableStop: false
 	Exit@1:
 		SpawnOffset: 256,512,0
 		ExitCell: 0,1
@@ -120,8 +129,11 @@ MFACT:
 	Production:
 		Produces: Vehicle
 	ProductionBar:
+		ProductionType: Vehicle
 	RallyPoint:
-		Path: rally
+		ForceSetType: Vehicle
+	CommandBarBlacklist:
+		DisableStop: false
 	Exit@1:
 		SpawnOffset: 512,768,0
 		ExitCell: 1,2
@@ -151,12 +163,15 @@ MREF:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
 	Refinery:
-		ResourceCapacity: 2000
 		DiscardExcessResources: false
+	DockHost:
+		Type: Unload
+		DockAngle: 256
+		DockOffset: 0, 1c0, 0
+	StoresPlayerResources:
+		Capacity: 2000
 	FreeActor:
 		Actor: mhvr
-	RallyPoint:
-		Path: rally
 	Selectable:
 		Bounds: 2048, 2048
 
@@ -213,6 +228,7 @@ MAIR:
 	Production:
 		Produces: Aircraft
 	ProductionBar:
+		ProductionType: Aircraft
 	Selectable:
 		Bounds: 3072, 2048
 
@@ -327,18 +343,25 @@ QCMD:
 	Power:
 		Amount: 30
 	BaseBuilding:
+	MustBeDestroyed:
+		RequiredForShortGame: true
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@faction:
 		Factions: muqawama
 		Prerequisite: structures.muqawama
 	Production:
 		Produces: Building, Defense
-	ProductionBar:
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+		Color: 8A8A8A
 	Selectable:
 		Bounds: 2048, 2048
 
 QPWR:
 	Inherits: ^Building
+	Inherits@shape: ^1x1Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -383,8 +406,11 @@ QBAR:
 	Production:
 		Produces: Infantry
 	ProductionBar:
+		ProductionType: Infantry
 	RallyPoint:
-		Path: rally
+		ForceSetType: Infantry
+	CommandBarBlacklist:
+		DisableStop: false
 	Exit@1:
 		SpawnOffset: 256,512,0
 		ExitCell: 0,1
@@ -416,8 +442,11 @@ QFACT:
 	Production:
 		Produces: Vehicle
 	ProductionBar:
+		ProductionType: Vehicle
 	RallyPoint:
-		Path: rally
+		ForceSetType: Vehicle
+	CommandBarBlacklist:
+		DisableStop: false
 	Exit@1:
 		SpawnOffset: 512,768,0
 		ExitCell: 1,2
@@ -447,12 +476,15 @@ QREF:
 		Amount: -15
 	ProvidesPrerequisite@buildingname:
 	Refinery:
-		ResourceCapacity: 1500
 		DiscardExcessResources: false
+	DockHost:
+		Type: Unload
+		DockAngle: 256
+		DockOffset: 0, 1c0, 0
+	StoresPlayerResources:
+		Capacity: 1500
 	FreeActor:
 		Actor: qhvr
-	RallyPoint:
-		Path: rally
 	Selectable:
 		Bounds: 2048, 2048
 
@@ -506,6 +538,7 @@ QHANG:
 	Production:
 		Produces: Aircraft
 	ProductionBar:
+		ProductionType: Aircraft
 	Selectable:
 		Bounds: 2048, 2048
 
@@ -556,6 +589,8 @@ MCV:
 		Speed: 56
 	RevealsShroud:
 		Range: 8c0
+	MustBeDestroyed:
+		RequiredForShortGame: true
 	GrantConditionOnFaction@MUQ:
 		Factions: muqawama
 		Condition: muq-faction
@@ -573,7 +608,6 @@ MCV:
 		Facing: 384
 		TransformSounds: placbldg.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
-	INotifyTransform:
 	WithFacingSpriteBody:
 	Selectable:
 		DecorationBounds: 1536, 1536

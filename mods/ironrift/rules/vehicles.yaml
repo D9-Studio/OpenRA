@@ -110,7 +110,6 @@ D9BLD:
 		Speed: 40
 	RevealsShroud:
 		Range: 4c0
-	Crushes:
 	Demolishable:
 	Selectable:
 		DecorationBounds: 1536, 1536
@@ -168,11 +167,11 @@ MHVR:
 	RevealsShroud:
 		Range: 4c0
 	Harvester:
+		Resources: Ore, Gems
+	StoresResources:
 		Capacity: 28
 		Resources: Ore, Gems
-		SearchFromProceedingRecipient: True
-		SearchFromOrderRecipient: True
-		DeliveryBuildings: mref
+	DockClientManager:
 	Selectable:
 		DecorationBounds: 1194, 1194
 
@@ -317,7 +316,7 @@ VBIED:
 	Armament:
 		Weapon: VBIEDExplosion
 	AttackFrontal:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: VBIEDExplosion
 		EmptyWeapon: VBIEDExplosion
 	Targetable:
@@ -342,10 +341,10 @@ QHVR:
 	RevealsShroud:
 		Range: 4c0
 	Harvester:
+		Resources: Ore, Gems
+	StoresResources:
 		Capacity: 20
 		Resources: Ore, Gems
-		SearchFromProceedingRecipient: True
-		SearchFromOrderRecipient: True
-		DeliveryBuildings: qref
+	DockClientManager:
 	Selectable:
 		DecorationBounds: 1194, 1194

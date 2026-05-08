@@ -11,8 +11,11 @@ FileSystem: ContentInstallerFileSystem
 		^EngineDir
 		$ironrift: ironrift
 		^EngineDir|mods/common: common
+		^EngineDir|mods/ra: ra
 		~^SupportDir|Content/ra/v2/: content
 		common|scripts
+		ra|scripts
+		ra|uibits
 		ironrift|bits
 	ContentPackages:
 		content|allies.mix
@@ -34,6 +37,8 @@ FileSystem: ContentInstallerFileSystem
 		~content|movies
 		~content|scores.mix
 		~content|general.mix
+		ra|bits
+		ra|bits/desert
 		ironrift|bits
 	RequiredContentFiles:
 		content|expand/chrotnk1.aud
@@ -58,13 +63,13 @@ Rules:
 	ironrift|rules/aircraft.yaml
 
 Sequences:
-	^EngineDir|mods/ra/sequences/ships.yaml
-	^EngineDir|mods/ra/sequences/vehicles.yaml
-	^EngineDir|mods/ra/sequences/structures.yaml
-	^EngineDir|mods/ra/sequences/infantry.yaml
-	^EngineDir|mods/ra/sequences/aircraft.yaml
-	^EngineDir|mods/ra/sequences/misc.yaml
-	^EngineDir|mods/ra/sequences/decorations.yaml
+	ra|sequences/ships.yaml
+	ra|sequences/vehicles.yaml
+	ra|sequences/structures.yaml
+	ra|sequences/infantry.yaml
+	ra|sequences/aircraft.yaml
+	ra|sequences/misc.yaml
+	ra|sequences/decorations.yaml
 	ironrift|sequences/vehicles.yaml
 	ironrift|sequences/structures.yaml
 	ironrift|sequences/infantry.yaml
@@ -72,15 +77,16 @@ Sequences:
 	ironrift|sequences/misc.yaml
 
 TileSets:
-	^EngineDir|mods/ra/tilesets/temperat.yaml
-	^EngineDir|mods/ra/tilesets/desert.yaml
-	^EngineDir|mods/ra/tilesets/snow.yaml
+	ra|tilesets/temperat.yaml
+	ra|tilesets/desert.yaml
+	ra|tilesets/snow.yaml
 
 Cursors:
-	^EngineDir|mods/ra/cursors.yaml
+	ra|cursors.yaml
 
 Chrome:
-	^EngineDir|mods/ra/chrome.yaml
+	ra|chrome.yaml
+	ironrift|chrome.yaml
 
 Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll
 
@@ -96,8 +102,8 @@ ChromeLayout:
 	common|chrome/ingame-infostats.yaml
 	common|chrome/ingame-info-lobby-options.yaml
 	common|chrome/ingame-menu.yaml
-	^EngineDir|mods/ra/chrome/ingame-observer.yaml
-	^EngineDir|mods/ra/chrome/ingame-player.yaml
+	ra|chrome/ingame-observer.yaml
+	ra|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
 	common|chrome/ingame-debug.yaml
 	common|chrome/ingame-debug-hpf.yaml
@@ -130,7 +136,7 @@ ChromeLayout:
 	common|chrome/replaybrowser.yaml
 	common|chrome/gamesave-browser.yaml
 	common|chrome/load-game-browser.yaml
-	^EngineDir|mods/ra/chrome/gamesave-loading.yaml
+	ra|chrome/gamesave-loading.yaml
 	common|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	common|chrome/tooltips.yaml
@@ -158,13 +164,13 @@ Weapons:
 	ironrift|weapons/explosives.yaml
 
 Voices:
-	^EngineDir|mods/ra/audio/voices.yaml
+	ra|audio/voices.yaml
 
 Notifications:
-	^EngineDir|mods/ra/audio/notifications.yaml
+	ra|audio/notifications.yaml
 
 Music:
-	^EngineDir|mods/ra/audio/music.yaml
+	ra|audio/music.yaml
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -177,9 +183,9 @@ Hotkeys:
 	common|hotkeys/control-groups.yaml
 
 LoadScreen: LogoStripeLoadScreen
-	Image: ^EngineDir|mods/ra/uibits/loadscreen.png
-	Image2x: ^EngineDir|mods/ra/uibits/loadscreen-2x.png
-	Image3x: ^EngineDir|mods/ra/uibits/loadscreen-3x.png
+	Image: ra|uibits/loadscreen.png
+	Image2x: ra|uibits/loadscreen-2x.png
+	Image3x: ra|uibits/loadscreen-3x.png
 
 ServerTraits:
 	LobbyCommands
@@ -189,7 +195,8 @@ ServerTraits:
 
 ChromeMetrics:
 	common|metrics.yaml
-	^EngineDir|mods/ra/metrics.yaml
+	ra|metrics.yaml
+	ironrift|metrics.yaml
 
 Fonts:
 	Tiny:

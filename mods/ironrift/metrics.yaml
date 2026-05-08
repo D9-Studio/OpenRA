@@ -1,0 +1,7 @@
+# Maps faction InternalNames to RA chrome suffixes (allies / soviet) so
+# AddFactionSuffixLogic resolves sidebar-allies, command-button-allies, etc.
+# instead of non-existent sidebar-magen, sidebar-muqawama.
+Metrics:
+	FactionSuffix-magen: allies
+	FactionSuffix-muqawama: soviet
+	FactionSuffix-Random: allies

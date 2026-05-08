@@ -83,16 +83,37 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 	PlaceBuilding:
+		NewOptionsNotification: NewOptions
+		CannotPlaceNotification: BuildingCannotPlaceAudio
+		NewOptionsTextNotification: notification-new-construction-options
+		CannotPlaceTextNotification: notification-cannot-deploy-here
+	SupportPowerManager:
 	BuildingRepairBotModule:
-	BaseAttackNotifier:
+	DamageNotifier:
+		ValidTargets: Structure
 		NotifyInterval: 30000
 		Notification: BaseUnderAttack
 		TextNotification: notification-base-under-attack
+		AllyTextNotification: notification-ally-under-attack
+	MissionObjectives:
+		WinNotification: Win
+		LoseNotification: Lose
+		LeaveNotification: Leave
 	ConquestVictoryConditions:
 		NotificationDelay: 1500
 		SuppressNotifications: true
 	PlayerStatistics:
+	FrozenActorLayer:
 	PowerManager:
+		SpeechNotification: LowPower
+		TextNotification: notification-low-power
 		AdviceInterval: 250
+	GpsWatcher:
+	GrantConditionOnPrerequisiteManager:
+	EnemyWatcher:
+	PlaceBeacon:
 	DeveloperMode:
+		CheckboxDisplayOrder: 10
 	PlayerExperience:
+	PlayerRadarTerrain:
+	GameSaveViewportManager:

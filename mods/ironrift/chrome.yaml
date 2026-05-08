@@ -1,0 +1,10 @@
+# Iron Rift chrome overrides.
+# Loaded after ra|chrome.yaml in mod.yaml so these entries merge into / override
+# the RA collections.
+
+# Add Iron Rift faction flags (placeholder: reuse RA allies/soviet sprites until
+# custom flag art is produced).
+flags:
+	Regions:
+		magen: 226, 177, 30, 15
+		muqawama: 226, 193, 30, 15

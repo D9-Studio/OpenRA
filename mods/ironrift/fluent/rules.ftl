@@ -254,3 +254,10 @@ actor-infantry =
 
 actor-building =
     .generic-name = Structure
+
+actor-drone =
+    .generic-name = Drone
+
+actor-crate =
+    .name = Crate
+    .generic-name = Crate

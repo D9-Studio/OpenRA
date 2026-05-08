@@ -50,8 +50,10 @@ namespace OpenRA.Mods.Common.Activities
 			if (IsCanceling)
 				return true;
 
-			// Prevent deployment in bogus locations
-			var transforms = self.TraitOrDefault<Transforms>();
+			// Prevent deployment in bogus locations.
+			// Use ActiveTransforms so actors with multiple conditional Transforms@ variants
+			// (e.g. faction-specific MCV deploy targets) resolve to the currently-enabled one.
+			var transforms = AIUtils.ActiveTransforms(self);
 			if (transforms != null && !transforms.CanDeploy())
 				return true;
 

@@ -11,7 +11,7 @@ d9bld:
 	Inherits: mnly
 
 namer:
-	Inherits: apc
+	Inherits: 2tnk
 
 mhvr:
 	Inherits: harv
@@ -20,7 +20,7 @@ tech:
 	Inherits: jeep
 
 bmp1:
-	Inherits: btr
+	Inherits: 2tnk
 
 katyusha:
 	Inherits: v2rl
@@ -31,5 +31,3 @@ vbied:
 qhvr:
 	Inherits: harv
 
-mcv:
-	Inherits: mcv

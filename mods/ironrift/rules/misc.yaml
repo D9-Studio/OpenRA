@@ -1,3 +1,32 @@
+# Crate actor — required by CrateSpawner in world.yaml
+CRATE:
+	Inherits@1: ^SpriteActor
+	Interactable:
+		Bounds: 1024, 1024
+	HiddenUnderFog:
+	Tooltip:
+		Name: actor-crate.name
+		GenericName: actor-crate.generic-name
+		ShowOwnerRow: false
+	Crate:
+		Duration: 4500
+		TerrainTypes: Clear, Rough, Road, Ore, Beach
+	RenderSprites:
+		Palette: effect
+		Image: scrate
+	WithCrateBody:
+		LandSequence: land
+		WaterSequence: water
+	GiveCashCrateAction:
+		Amount: 1000
+		SelectionShares: 50
+		UseCashTick: true
+	LevelUpCrateAction:
+		SelectionShares: 40
+	HealActorsCrateAction:
+		Sound: heal2.aud
+		SelectionShares: 10
+
 # Editor / system actors (aligned with RA so maps and tools work)
 
 CAMERA:
@@ -44,3 +73,12 @@ waypoint:
 		QuantizedFacings: 1
 	MapEditorData:
 		Categories: System
+
+# Lobby color preview (requires ColorPickerManager on World; same pattern as RA fact.colorpicker)
+mcmd.colorpicker:
+	Inherits: MCMD
+	-Buildable:
+	-BaseBuilding:
+	RenderSprites:
+		Image: mcmd
+		Palette: colorpicker

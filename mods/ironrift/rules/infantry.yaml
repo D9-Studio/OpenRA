@@ -245,7 +245,7 @@ MARTYR:
 	Armament:
 		Weapon: ExplosiveVest
 	AttackFrontal:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: MartyrExplosion
 		EmptyWeapon: MartyrExplosion
 	Targetable:

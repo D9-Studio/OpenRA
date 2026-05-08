@@ -1,8 +1,7 @@
-# Shared effects, crates, etc. from RA
-# These are referenced by weapons and decorations
-
-crate-effects:
-	Inherits: crate-effects
-
-rank:
-	Inherits: rank
+# Iron Rift mod-specific misc sequences (effects, crates, decorations).
+# RA's crate-effects, rank, craters, etc. are already loaded via
+# ra|sequences/misc.yaml in mod.yaml - do NOT re-declare them here as
+# self-references (e.g. `crate-effects: Inherits: crate-effects`)
+# because the engine treats that as duplicate inheritance.
+#
+# Add new mod-specific entries below as needed.

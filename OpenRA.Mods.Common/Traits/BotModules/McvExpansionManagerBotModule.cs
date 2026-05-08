@@ -13,6 +13,7 @@ using System;
 using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.Mods.Common;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Common.Traits
@@ -654,7 +655,9 @@ namespace OpenRA.Mods.Common.Traits
 		void DeployMcv(IBot bot, Actor mcv, bool move)
 		{
 			CPos? desiredLocation = null;
-			var transformsInfo = mcv.Info.TraitInfo<TransformsInfo>();
+			var transformsInfo = AIUtils.ActiveTransformsInfo(mcv);
+			if (transformsInfo == null)
+				return;
 			var actorInfo = world.Map.Rules.Actors[transformsInfo.IntoActor];
 			var bi = actorInfo.TraitInfoOrDefault<BuildingInfo>();
 			if (bi == null)

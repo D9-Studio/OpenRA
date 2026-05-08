@@ -12,6 +12,7 @@
 using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.Mods.Common;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Common.Traits
@@ -156,7 +157,9 @@ namespace OpenRA.Mods.Common.Traits
 					Info.RestrictMCVDeploymentFallbackToBase &&
 					AIUtils.CountActorByCommonName(constructionYards) > 0;
 
-				var transformsInfo = mcv.Info.TraitInfo<TransformsInfo>();
+				var transformsInfo = AIUtils.ActiveTransformsInfo(mcv);
+				if (transformsInfo == null)
+					return;
 				var desiredLocation = ChooseMcvDeployLocation(transformsInfo.IntoActor, transformsInfo.Offset, restrictToBase);
 				if (desiredLocation == null)
 					return;

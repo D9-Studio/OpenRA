@@ -98,6 +98,7 @@ World:
 	ChatCommands:
 	DevCommands:
 	DebugVisualizationCommands:
+	PathFinder:
 	PathFinderOverlay:
 	HierarchicalPathFinderOverlay:
 	ActorMapOverlay:
@@ -156,21 +157,42 @@ World:
 		ClassName: options-starting-units.mcv-only
 		Factions: magen, muqawama
 		BaseActor: mcv
-	StartingUnits@lightsupport:
+	StartingUnits@lightsupport-magen:
 		Class: light
 		ClassName: options-starting-units.light-support
-		Factions: magen, muqawama
+		Factions: magen
 		BaseActor: mcv
 		SupportActors: loham, loham, eitan
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	LobbyOptions:
+	StartingUnits@lightsupport-muqawama:
+		Class: light
+		ClassName: options-starting-units.light-support
+		Factions: muqawama
+		BaseActor: mcv
+		SupportActors: mujhd, mujhd, mujhd, tech
+		InnerSupportRadius: 3
+		OuterSupportRadius: 5
+	MapStartingLocations:
+		SeparateTeamSpawnsCheckboxDisplayOrder: 6
 	SpawnStartingUnits:
 	CreateMapPlayers:
-	CircleButton:
+	ValidateOrder:
+	ScriptTriggers:
+	RadarPings:
+	StartGameNotification:
+		SavedTextNotification: notification-game-saved
 	ObjectivesPanel:
-		PanelName: MISSION_OBJECTIVES
+		PanelName: SKIRMISH_STATS
 		ExitDelay: 1500
+	LoadWidgetAtGameStart:
+	ColorPickerManager:
+		PreviewActor: mcmd.colorpicker
+		PresetColors: 391D1D, 98331F, F57606, F50606, DDB8FF, ACF218, 06F739, F2BC18, 200738, 280DF6, 79F2AA, 34BA93, F861A4, C718F2, 79CEF2, 2F86F2
+	OrderEffects:
+		TerrainFlashImage: moveflsh
+		TerrainFlashSequence: idle
+		TerrainFlashPalette: moveflash
 
 EditorWorld:
 	Inherits: ^BaseWorld

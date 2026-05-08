@@ -230,6 +230,9 @@
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
+	HitShape:
+		Type: Circle
+			Radius: 426
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle
@@ -242,6 +245,55 @@
 	Mobile:
 		Locomotor: heavytracked
 		TurnSpeed: 16
+
+^Drone:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@bounty: ^GlobalBounty
+	Inherits@selection: ^SelectableCombatUnit
+	Inherits@handicaps: ^PlayerHandicaps
+	OwnerLostAction:
+		Action: Kill
+	UpdatesPlayerStatistics:
+	Armor:
+		Type: Light
+	Aircraft:
+		AirborneCondition: airborne
+	Targetable@GROUND:
+		RequiresCondition: !airborne
+		TargetTypes: GroundActor
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneActor
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	HiddenUnderFog:
+		Type: GroundPosition
+	AttackMove:
+	Guard:
+	Guardable:
+	ActorLostNotification:
+		TextNotification: notification-unit-lost
+	ProximityCaptor:
+		Types: Plane
+	GpsDot:
+		String: Drone
+	WithShadow:
+		Offset: 43, 128, 0
+		ZOffset: -129
+	WithFacingSpriteBody:
+	Tooltip:
+		GenericName: actor-drone.generic-name
+	MustBeDestroyed:
+	Voiced:
+		VoiceSet: GenericVoice
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodePlane
+		EmptyWeapon: UnitExplodePlane
+	HitShape:
+	MapEditorData:
+		Categories: Aircraft
 
 ^Soldier:
 	Inherits@1: ^ExistsInWorld
@@ -291,6 +343,9 @@
 	Passenger:
 		CargoType: Infantry
 		Voice: Move
+	HitShape:
+		Type: Circle
+			Radius: 128
 
 ^Building:
 	Inherits@1: ^ExistsInWorld
@@ -307,6 +362,7 @@
 	Building:
 		Dimensions: 1,1
 		Footprint: x
+		TerrainTypes: Clear, Rough, Road
 	ActorPreviewPlaceBuildingPreview:
 	WithSpriteBody:
 	Tooltip:

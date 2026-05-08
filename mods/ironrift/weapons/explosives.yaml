@@ -114,3 +114,24 @@ UnitExplodeSmall:
 		Explosions: small_explosion
 		ImpactSounds: kaboom12.aud
 		ValidTargets: Ground, GroundActor
+
+UnitExplodePlane:
+	ValidTargets: Ground, GroundActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 384
+		Damage: 3000
+		ValidTargets: GroundActor
+		Versus:
+			None: 100
+			Wood: 60
+			Light: 30
+			Heavy: 15
+			Concrete: 10
+		DamageTypes: ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, GroundActor

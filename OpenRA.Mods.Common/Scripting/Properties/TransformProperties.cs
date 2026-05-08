@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System.Linq;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Scripting;
 using OpenRA.Traits;
@@ -18,19 +19,22 @@ namespace OpenRA.Mods.Common.Scripting
 	[ScriptPropertyGroup("General")]
 	public class TransformProperties : ScriptActorProperties, Requires<TransformsInfo>
 	{
-		readonly Transforms transforms;
+		readonly Actor self;
 
 		public TransformProperties(ScriptContext context, Actor self)
 			: base(context, self)
 		{
-			transforms = self.Trait<Transforms>();
+			this.self = self;
 		}
 
 		[ScriptActorPropertyActivity]
 		[Desc("Queue a new transformation.")]
 		public void Deploy()
 		{
-			transforms.DeployTransform(true);
+			// Use the currently-enabled Transforms trait so actors with multiple
+			// faction-conditional Transforms@ variants resolve correctly.
+			var transforms = AIUtils.ActiveTransforms(self) ?? self.TraitsImplementing<Transforms>().FirstOrDefault();
+			transforms?.DeployTransform(true);
 		}
 	}
 }
